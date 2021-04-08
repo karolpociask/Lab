@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+'''
 # --------------------------------------- array ---------------------------
 arr = np.array([1, 2, 3, 4, 5])
 print(arr)
@@ -177,3 +178,54 @@ plt.ylabel('Pozycja')
 plt.title('Wykres ')
 plt.grid(True)
 plt.show()
+'''
+# zadanie 3
+A_1 = np.array([np.linspace(1, 5, 5), np.linspace(5, 1, 5)])
+A_2 = np.zeros((3, 2))
+A_3 = np.ones((2, 3))*2
+A_4 = np.linspace(-90, -70, 3)
+A_5 = np.ones((5, 1))*10
+
+A = np.block([[A_3], [A_4]])
+A = np.block([A_2, A])
+A = np.block([[A_1], [A]])
+A = np.block([A, A_5])
+
+
+# zadanie 4
+
+B = A[1] + A[3]
+
+# zadanie 5
+
+C = np.array([max(A[:, 0]), max(A[:, 1]), max(A[:, 2]), max(A[:, 3]), max(A[:, 4]), max(A[:, 5])])
+
+
+# zadanie 6
+
+D = np.delete(B, 0)
+D = np.delete(D, len(D)-1)
+
+# zadanie 7
+
+for x in range(4):
+    if(D[x]==4):
+        D[x]=0
+
+# zadanie 8
+max = C[0]
+max_ID = 0
+min = C[0]
+min_ID = 0
+for x in range(len(C)):
+    if(C[x] > max):
+        max = C[x]
+        max_ID = x
+E = np.delete(C, max_ID)
+for x in range(len(E)):
+    if(E[x] < min):
+        min = C[x]
+        min_ID = x
+E = np.delete(E, min_ID)
+print(C)
+print(E)
